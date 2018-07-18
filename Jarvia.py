@@ -13,8 +13,17 @@ import webbrowser
 import glob
 from PyDictionary import PyDictionary
 import tmdbsimple as tmdb
-edm='https://www.youtube.com/watch?v=3RMywOVg3'
-edml=['edm','dubstep','trance','electric']
+import nltk
+from nltk.corpus import wordnet
+hi = []
+yes=[]
+for syn in wordnet.synsets("hi"):
+    for l in syn.lemmas():
+        hi.append(l.name())
+for syn in wordnet.synsets("yes"):
+    for l in syn.lemmas():
+        yes.append(l.name())
+print(set(synonyms))
 app_id='XPAQWX-W5LAG5ELYL'
 client=wolframalpha.Client(app_id)
 tmdb.API_KEY = '60222ace6396c345f94cc42eaac5dae5'
