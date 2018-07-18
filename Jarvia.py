@@ -1,5 +1,9 @@
+print(loading...)
+import setup
+setup.setup()
 import random
 import time
+import sys
 import pycountry
 import os
 import os.path
@@ -15,15 +19,14 @@ from PyDictionary import PyDictionary
 import tmdbsimple as tmdb
 import nltk
 from nltk.corpus import wordnet
+import setup
+setup.setup()
+st1=[]
 hi = []
 yes=[]
 for syn in wordnet.synsets("hi"):
     for l in syn.lemmas():
         hi.append(l.name())
-for syn in wordnet.synsets("yes"):
-    for l in syn.lemmas():
-        yes.append(l.name())
-print(set(synonyms))
 app_id='XPAQWX-W5LAG5ELYL'
 client=wolframalpha.Client(app_id)
 tmdb.API_KEY = '60222ace6396c345f94cc42eaac5dae5'
@@ -59,6 +62,7 @@ name = input ("what is your name>>> ")
 print ("hello " + name)
 while 1==1:
     response = input("Main>>> ")
+    st1=response.split()
     if response == "what time is it" or response=='what is the time':
         print(time.strftime("%I")+':'+time.strftime('%M %p'))
     elif response == ("what is your favorite color"):
@@ -83,7 +87,8 @@ while 1==1:
     elif response == ('jarvia'):
         print('Yes Sir?', 'What can I do for you sir?')
 
-
+    elif response=='exit' or response=='quit':
+        sys.exit('quiting...')
     elif('how are you') in response or ('and you') in response or ('are you okay') in response:
         print('Im good, thanks')
     elif ('your name') in response:
@@ -247,8 +252,8 @@ while 1==1:
     elif response == "change my name":
         print("what would you like to change your name to")
         name = input ("new name: ")
-        print("hello, " + name)
-    elif "hello" in response:
+        print("hello, " + name) 
+    elif st1[0] in hi:    
         print ("hi")
     elif response == ("how do you spell your name"):
         print ("j-a-r-v-i-a")
